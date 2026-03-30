@@ -1,0 +1,8 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(.venv/Scripts/python.exe -m pip install flask flask-cors)",
+      "Bash(pip install:*)"
+    ]
+  }
+}
