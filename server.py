@@ -30,8 +30,9 @@ def chat(question):
     current_turns = len(chat_history) // 2
     if current_turns >= MAX_TURNS:
         return {
-            "response": "Context window is full. The AI may not follow your previous thread properly. Please type 'clear' for a new chat.",
-            "remaining": 0
+            "response": "Context window is full\nThe AI not follow your previous thread properly\nPlease click 'New Chat' for a new chat",
+            "remaining": 0,
+            "context_full": True
         }
 
     response = chain.invoke({

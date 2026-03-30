@@ -200,6 +200,41 @@
             min-width: 0;
         }
 
+        /* New Chat Button */
+        .new-chat-btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            width: 100%;
+            padding: 14px 20px;
+            background: linear-gradient(135deg, var(--accent-primary), var(--accent-secondary));
+            border: none;
+            border-radius: 14px;
+            color: var(--bg-deep);
+            font-family: 'DM Sans', sans-serif;
+            font-size: 14px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 20px var(--accent-glow);
+        }
+
+        .new-chat-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 30px var(--accent-glow);
+        }
+
+        .new-chat-btn:active {
+            transform: translateY(0);
+        }
+
+        .new-chat-btn svg {
+            width: 18px;
+            height: 18px;
+            fill: var(--bg-deep);
+        }
+
         /* Header */
         .header {
             display: flex;
@@ -597,6 +632,13 @@
                     <span class="model-value">{{ model_info.temperature }}</span>
                 </div>
             </div>
+
+            <button class="new-chat-btn" onclick="clearChat()">
+                <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"/>
+                </svg>
+                New Chat
+            </button>
         </aside>
 
         <!-- Chat Area -->
@@ -608,7 +650,6 @@
             </div>
             <div class="header-actions">
                 <div class="turns-indicator">Turns: <span id="turns-count">0</span>/5</div>
-                <button class="clear-btn" onclick="clearChat()">Clear</button>
             </div>
         </header>
 
@@ -695,6 +736,13 @@
                 remaining = data.remaining;
                 updateTurns();
 
+                // Check if context is full
+                if (data.context_full) {
+                    messageInput.placeholder = "Context full - Click 'New Chat' to start fresh";
+                    messageInput.disabled = true;
+                    sendBtn.disabled = true;
+                }
+
             } catch (error) {
                 typingIndicator.classList.remove('active');
                 addMessage('Error: Could not connect to the server.', 'ai');
@@ -748,6 +796,9 @@
                 `;
                 remaining = 5;
                 turnsCount.textContent = '0';
+                messageInput.disabled = false;
+                messageInput.placeholder = "Type your message...";
+                sendBtn.disabled = false;
             } catch (error) {
                 console.error('Error clearing chat:', error);
             }
