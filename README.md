@@ -10,6 +10,7 @@ A stunning AI chatbot with a beautiful dark UI powered by LangChain and Ollama.
 - Typing indicator animation
 - Responsive design
 - Turns counter (5 turns max per conversation)
+- Sidebar showing model name and temperature settings
 
 ## Requirements
 

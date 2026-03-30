@@ -46,7 +46,11 @@ def chat(question):
 
 @app.route('/')
 def index():
-    return render_template('index.html')
+    model_info = {
+        "model": "minimax-m2.5:cloud",
+        "temperature": 0.7
+    }
+    return render_template('index.html', model_info=model_info)
 
 @app.route('/api/chat', methods=['POST'])
 def api_chat():
