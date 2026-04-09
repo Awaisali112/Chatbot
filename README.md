@@ -1,8 +1,8 @@
 # AI Chatbot
 
-![Chatbot Flow](chatbot-flow.png)
+![Chatbot Flow](chatbot%20flow.png)
 
-![Chat UI](chatui.png)
+![Chat UI](chat.png)
 
 A stunning AI chatbot with a beautiful dark UI powered by LangChain and Ollama.
 
