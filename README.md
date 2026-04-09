@@ -1,6 +1,6 @@
 # AI Chatbot
 
-![Chatbot Flow](Chatbot%20Flow.png)
+![Chatbot Flow](chatbot-flow.png)
 
 ![Chat UI](chatui.png)
 
