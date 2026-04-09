@@ -1,5 +1,9 @@
 # AI Chatbot
 
+![Chatbot Flow](Chatbot%20Flow.png)
+
+![Chat UI](chatui.png)
+
 A stunning AI chatbot with a beautiful dark UI powered by LangChain and Ollama.
 
 ## Features
@@ -44,3 +48,4 @@ Then open your browser to: **http://localhost:5000**
 - `templates/index.html` - Frontend UI
 - `static/favicon.svg` - Favicon
 - `main.py` - Original CLI chatbot
+
